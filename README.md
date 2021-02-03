@@ -1,8 +1,8 @@
-# CodiEsp Baseline 1 - Lookup
+# ProfNER-ST Baseline 1 - Lookup
 
 ## Introduction
-This system extracts information from a set of annotated documents.Then, checks whether, in a new set of text documents, the extracted annotation are present.
-This system is thought to participate in the CodiEsp Track [http://temu.bsc.es/codiesp/]
+This system extracts information from a set of annotated documents. Then, it checks whether, in a new set of text documents, the extracted annotation are present.
+This system works as baseline for ProfNER shared task [http://temu.bsc.es/smm4h-spanish/]
 
 #### Steps: 
 1. Extract annotations from tab-separated file and tokenize them.
@@ -13,26 +13,22 @@ This system is thought to participate in the CodiEsp Track [http://temu.bsc.es/c
 6. Repeat steps 2-5 for every file in the directory.
 
 #### Input format
-+ Gold standard: tab-separated file with annotations. There are two possible formats, depending on the sub-track we use. Format for sub-tracks 1 or 2:
++ Gold standard: tab-separated file with the annotations. Format (contains headers):
 ```
-filename	label	annotated-code	annotation-reference
-```
-Format for sub-track 3:
-```
-filename	label	annotated-code	annotation-reference	start-position end-position
+tweet_id	begin	end	type	extraction
 ```
 
 + Text files where codes will be predicted.
 
 
 #### Output format
-+ Tab-separated file with annotations. There are two possible formats, depending on the sub-track we use. Format for sub-tracks 1 or 2:
++ Tab-separated file with annotations. There are two possible formats, depending on the sub-track we use. Format for sub-track a on tweet classification:
 ```
-filename	annotated-code
+tweet_id	label
 ```
-Format for sub-track 3:
+Format for sub-track b on Named Entity Recognition detection and classification:
 ```
-filename	start-position end-position	label	annotated-code
+tweet_id	begin	end	type	extraction
 ```
 
 ## Getting Started
@@ -61,10 +57,9 @@ git clone <repo_url>
 Both scripts accept the same two parameters:
 + --gs_path (-gs) specifies the path to the Gold Standard file.
 + --gs_path2 (-gs2) specifies the path to an additional GS file (not mandatory parameter).
-+ --gs_path3 (-gs3) specifies the path to an additional GS file (not mandatory parameter).
 + --data_path (-data) specifies the path to the text files.
 + --out_path (-out) specifies the path to the output predictions file.
-+ --sub_track (-t) specifies the task we are using the system for. In CodiEsp Track, there are 3 tasks. The third one is on Explainable AI and systems need to predict codes and provide a reference to them.
++ --sub_track (-t) specifies the task we are using the system for. In ProfNER Track, there are 2 tasks (1 for tweet classification and 2 for NER).
 
 ```
 $> python lookup.py -gs gold_standard.tsv -data datapath/ -out predictions.tsv -t TASK_NUMBER
