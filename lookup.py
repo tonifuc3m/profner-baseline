@@ -232,7 +232,7 @@ if __name__ == '__main__':
         df_no_pred = pd.DataFrame(dict(zip(unannotated, [0]*len(unannotated))).items(), 
                                   columns=['doc', 'label'])
         df_final = df_final.append(df_no_pred)
-        df_final.columns = ['tweet_id', 'label']
+        df_final.columns = ['tweet_id', 'Class']
         
     elif sub_track == 2: 
         df_final = df[['doc', 'pos0','pos1','label','ref']].copy()

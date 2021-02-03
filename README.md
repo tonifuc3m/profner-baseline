@@ -24,7 +24,7 @@ tweet_id	begin	end	type	extraction
 #### Output format
 + Tab-separated file with annotations. There are two possible formats, depending on the sub-track we use. Format for sub-track a on tweet classification:
 ```
-tweet_id	label
+tweet_id	Class
 ```
 Format for sub-track b on Named Entity Recognition detection and classification:
 ```
