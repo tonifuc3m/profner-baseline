@@ -2,7 +2,7 @@
 
 ## Introduction
 This system extracts information from a set of annotated documents. Then, it checks whether, in a new set of text documents, the extracted annotation are present.
-This system works as baseline for ProfNER shared task [http://temu.bsc.es/smm4h-spanish/]
+This system works as baseline for ProfNER shared task [http://temu.bsc.es/smm4h-spanish/]. See CodaLab for evaluation: [https://competitions.codalab.org/competitions/28766]
 
 #### Steps: 
 1. Extract annotations from tab-separated file and tokenize them.
@@ -24,7 +24,7 @@ tweet_id	begin	end	type	extraction
 #### Output format
 + Tab-separated file with annotations. There are two possible formats, depending on the sub-track we use. Format for sub-track a on tweet classification:
 ```
-tweet_id	Class
+tweet_id	label
 ```
 Format for sub-track b on Named Entity Recognition detection and classification:
 ```
